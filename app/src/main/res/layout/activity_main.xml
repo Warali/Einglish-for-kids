@@ -28,7 +28,16 @@
         app:srcCompat="@drawable/play_blue"
         android:id="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="false"
-        android:layout_centerVertical="false"
-        android:layout_alignParentBottom="true" />
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp" />
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/play_blue"
+        android:id="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView" />
 </RelativeLayout>

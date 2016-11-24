@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
-    private ImageView imageView;
-
+    private ImageView ConsonantImageView,numberImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +17,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Bind Widget
-        imageView = (ImageView) findViewById(R.id.imageView);
+        ConsonantImageView = (ImageView) findViewById(R.id.imageView);
+        numberImageView = (ImageView) findViewById(R.id.imageView2);
 
         //Image Controller
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,PlayActivity.class));
-            }
-        });
+        ConsonantImageView.setOnClickListener(this);
+        numberImageView.setOnClickListener(this);
+
+
     }// Main Method
+
+    @Override
+    public void onClick(View v) {
+
+
+        int index = 0;
+        switch (v.getId()) {
+            case R.id.imageView:
+                index = 0;
+                break;
+            case R.id.imageView2:
+                index = 1;
+                break;
+
+        } //switch
+
+        Intent intent = new Intent(MainActivity.this, ContantActivity.class);
+        intent.putExtra("Index", index);
+        startActivity(intent);
+
+    }// onclik
+
 }// Main Class
