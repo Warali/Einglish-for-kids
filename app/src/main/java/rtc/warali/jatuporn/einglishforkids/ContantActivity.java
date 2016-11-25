@@ -21,12 +21,12 @@ public class ContantActivity extends AppCompatActivity {
     private Button backButton, playButton;
     private int[] soundInts = new int[]{R.raw.aa};
     private int[] imageInts = new int[]{R.drawable.a, R.drawable.b,
-            R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.a,
-            R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a,
-            R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a,
-            R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a,
-            R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a,
-            R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a};
+            R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,
+            R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,
+            R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,
+            R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,
+            R.drawable.s,R.drawable.t,R.drawable.u,R.drawable.v,
+            R.drawable.w,R.drawable.x,R.drawable.y,R.drawable.z};
 
 
     @Override
@@ -58,7 +58,7 @@ public class ContantActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContantActivity, this, TestActivity.class);
+                Intent intent = new Intent(ContantActivity.this, TestActivity.class);
                 intent.putExtra("Times", timesAnInt);
                 timesAnInt += 1;
 
