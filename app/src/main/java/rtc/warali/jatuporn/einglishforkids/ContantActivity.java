@@ -19,7 +19,7 @@ public class ContantActivity extends AppCompatActivity {
     private String[] titleStrings = new String[]{"ตัวพยัญชนะ", "ตัวเลข"};
     private ImageView imageView;
     private Button backButton, playButton;
-    private int[] soundInts = new int[]{R.raw.aa};
+    private int[] soundInts = new int[]{R.raw.aa,R.raw.bb,R.raw.cc};
     private int[] imageInts = new int[]{R.drawable.a, R.drawable.b,
             R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,
             R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,
