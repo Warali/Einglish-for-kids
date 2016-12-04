@@ -9,13 +9,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="rtc.warali.jatuporn.einglishforkids.TestActivity">
+    tools:context="rtc.warali.jatuporn.einglishforkids.TestActivity"
+    android:background="@drawable/bg6">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="false"
+        android:layout_marginTop="400dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -43,7 +45,8 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp">
 
 
         <TextView
@@ -68,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
-        android:textSize="70sp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />
 
