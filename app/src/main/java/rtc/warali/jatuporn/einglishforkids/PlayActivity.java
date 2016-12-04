@@ -5,9 +5,18 @@ import android.os.Bundle;
 
 public class PlayActivity extends AppCompatActivity {
 
+    //Explicit
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-    }
-}
+    }   // Main Method
+
+}   // Main Class
