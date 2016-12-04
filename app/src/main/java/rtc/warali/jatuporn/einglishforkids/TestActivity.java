@@ -1,5 +1,7 @@
 package rtc.warali.jatuporn.einglishforkids;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,7 +12,7 @@ import android.widget.TextView;
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
-    private int timesAnInt;
+    private int timesAnInt, scoreAnInt;
     private MyConstant myConstant;
     private int[][] choiceInts;
     private ImageView firstImageView, secondImageView, thirdImageView;
@@ -49,6 +51,9 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         thirdImageView.setOnClickListener(this);
 
 
+
+
+
     }   // Main Method
 
     private void showView() {
@@ -56,6 +61,20 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         firstImageView.setImageResource(choiceInts[timesAnInt][0]);
         secondImageView.setImageResource(choiceInts[timesAnInt][1]);
         thirdImageView.setImageResource(choiceInts[timesAnInt][2]);
+
+        try {
+
+            SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
+                    MODE_PRIVATE, null);
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM kidTABLE", null);
+            cursor.moveToFirst();
+            String strScore = cursor.getString(cursor.getColumnIndex(MyManage.column_score));
+            scoreTextView.setText(strScore);
+            scoreAnInt = Integer.parseInt(strScore);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -90,7 +109,18 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("4decV2", "You Choose ==> " + intChoose);
         Log.d("4decV2", "True Answer ==> " + trueAnswerInts[timesAnInt]);
 
+        if (intChoose == trueAnswerInts[timesAnInt]) {
+            scoreAnInt += 1;
 
+            SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
+                    MODE_PRIVATE, null);
+            sqLiteDatabase.delete(MyManage.database_table, null, null);
+
+            myManage.addValue(Integer.toString(scoreAnInt));
+
+        } // if
+
+        finish();
 
     }   // onClick
 
