@@ -3,10 +3,11 @@ package rtc.warali.jatuporn.einglishforkids;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
     private int timesAnInt;
@@ -15,7 +16,8 @@ public class TestActivity extends AppCompatActivity {
     private ImageView firstImageView, secondImageView, thirdImageView;
     private TextView questionTextView, scoreTextView;
     private String[] questionStrings;
-
+    private MyManage myManage;
+    private int[] trueAnswerInts;
 
 
     @Override
@@ -23,11 +25,14 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        myManage = new MyManage(TestActivity.this);
+
         timesAnInt = getIntent().getIntExtra("Times", 0);
         Log.d("4decV1", "timesAnInt ที่รับได้ ==> " + timesAnInt);
 
         myConstant = new MyConstant();
         choiceInts = myConstant.getChoiceInts();
+        trueAnswerInts = myConstant.getTrueAnserInts();
 
         bindWidget();
 
@@ -38,6 +43,10 @@ public class TestActivity extends AppCompatActivity {
         questionStrings = myConstant.getQurstionStrings();
         questionTextView.setText(questionStrings[timesAnInt]);
 
+        //Image Controller
+        firstImageView.setOnClickListener(this);
+        secondImageView.setOnClickListener(this);
+        thirdImageView.setOnClickListener(this);
 
 
     }   // Main Method
@@ -60,5 +69,29 @@ public class TestActivity extends AppCompatActivity {
         scoreTextView = (TextView) findViewById(R.id.textView3);
 
     }
+
+    @Override
+    public void onClick(View view) {
+
+        int intChoose = 1;
+
+        switch (view.getId()) {
+            case R.id.imageView4:
+                intChoose = 1;
+                break;
+            case R.id.imageView5:
+                intChoose = 2;
+                break;
+            case R.id.imageView6:
+                intChoose = 3;
+                break;
+        }   // switch
+
+        Log.d("4decV2", "You Choose ==> " + intChoose);
+        Log.d("4decV2", "True Answer ==> " + trueAnswerInts[timesAnInt]);
+
+
+
+    }   // onClick
 
 }   // Main Class
