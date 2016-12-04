@@ -43,16 +43,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.imageView:
                 index = 0;
+
+
+                Intent intent = new Intent(MainActivity.this, ContantActivity.class);
+                intent.putExtra("Index", index);
+                startActivity(intent);
                 break;
             case R.id.imageView2:
                 index = 1;
+
+                Intent intent1 = new Intent(MainActivity.this, NumberActivity.class);
+                intent1.putExtra("Index", index);
+                startActivity(intent1);
                 break;
 
         } //switch
 
-        Intent intent = new Intent(MainActivity.this, ContantActivity.class);
-        intent.putExtra("Index", index);
-        startActivity(intent);
+
 
     }// onclik
 
