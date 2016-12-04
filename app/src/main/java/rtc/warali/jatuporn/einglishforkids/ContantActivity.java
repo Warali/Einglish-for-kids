@@ -46,7 +46,7 @@ public class ContantActivity extends AppCompatActivity {
         anInt = getIntent().getIntExtra("Index", 0);
         textView.setText(titleStrings[anInt]);
         //sound Effect
-        soundEffect(0);
+        soundEffect(timesAnInt);
 
         //Button Controller
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +71,8 @@ public class ContantActivity extends AppCompatActivity {
     }// Main Method
 
 
+
+
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -78,6 +80,9 @@ public class ContantActivity extends AppCompatActivity {
         Log.d("engV1", "Timess ==> " + timesAnInt);
 
         changeImage();
+
+        soundEffect(timesAnInt);
+
     }
 
     private void changeImage() {
