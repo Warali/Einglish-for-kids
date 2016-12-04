@@ -1,5 +1,8 @@
 package rtc.warali.jatuporn.einglishforkids;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -72,6 +75,12 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             scoreTextView.setText(strScore);
             scoreAnInt = Integer.parseInt(strScore);
 
+            if (scoreAnInt == 10) {
+                myAlert();
+            }
+
+            cursor.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,10 +127,36 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
             myManage.addValue(Integer.toString(scoreAnInt));
 
-        } // if
+            Log.d("4decV3", "scoreAnInt ==> " + scoreAnInt);
+
+
+        }
 
         finish();
 
     }   // onClick
+
+    private void myAlert() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.doremon48);
+        builder.setTitle("ยินดีด้วย ได้ 10 เหลียนแว้ว");
+        builder.setMessage("ไป Shop ไหม ?");
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(new Intent(TestActivity.this, Shop.class));
+            }
+        });
+        builder.show();
+
+    }
 
 }   // Main Class
