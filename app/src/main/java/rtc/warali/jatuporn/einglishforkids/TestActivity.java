@@ -25,6 +25,7 @@ public class TestActivity extends AppCompatActivity {
         myConstant = new MyConstant();
         choiceInts = myConstant.getChoiceInts();
 
+
         bindWidget();
 
         //Show View
