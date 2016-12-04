@@ -7,6 +7,17 @@ package rtc.warali.jatuporn.einglishforkids;
 public class MyConstant {
 
     //Explicit
+    private String[] qurstionStrings = new String[]{
+            "Ant",
+            "Bat",
+            "Cat",
+            "Dog",
+            "Egg"};
+
+    private int[] trueAnserInts = new int[]{2,1,3,1,2};
+
+
+
     private int[][] choiceInts = new int[][]{
             {R.drawable.ka1, R.drawable.ka2, R.drawable.ka3},
             {R.drawable.kb1, R.drawable.kb2, R.drawable.kb3},
@@ -34,6 +45,14 @@ public class MyConstant {
             {R.drawable.kx1, R.drawable.kx2, R.drawable.kx3},
             {R.drawable.ky1, R.drawable.ky2, R.drawable.ky3},
             {R.drawable.kz1, R.drawable.kz2, R.drawable.kz3}};
+
+    public String[] getQurstionStrings() {
+        return qurstionStrings;
+    }
+
+    public int[] getTrueAnserInts() {
+        return trueAnserInts;
+    }
 
     public int[][] getChoiceInts() {
         return choiceInts;
