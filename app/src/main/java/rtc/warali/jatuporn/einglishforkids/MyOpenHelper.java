@@ -20,7 +20,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "Score text);";
 
     public MyOpenHelper(Context context) {
-        super(context, database_name, null, database_version);
+      super(context, database_name, null, database_version);
         this.context = context;
     }
 
