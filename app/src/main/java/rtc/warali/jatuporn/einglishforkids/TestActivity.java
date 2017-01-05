@@ -100,6 +100,9 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         questionTextView = (TextView) findViewById(R.id.textView4);
         scoreTextView = (TextView) findViewById(R.id.textView3);
 
+        scoreTextView.setVisibility(View.INVISIBLE);
+
+
     }
 
     @Override
@@ -136,13 +139,15 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
             soundTrueFalse(soundInts[0]);
 
+            Toast.makeText(TestActivity.this, "ยินดีด้วยคุณตอบถูก คะ", Toast.LENGTH_SHORT).show();
+
             finish();
 
         } else {
             //Answer False
             soundTrueFalse(soundInts[1]);
 
-            Toast.makeText(TestActivity.this, "Try Again Answer False", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TestActivity.this, "ลองใหม่ คุณตอบผิด คะ", Toast.LENGTH_SHORT).show();
 
         }
 
