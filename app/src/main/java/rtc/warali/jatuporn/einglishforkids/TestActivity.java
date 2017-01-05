@@ -5,12 +5,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +25,8 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
     private String[] questionStrings;
     private MyManage myManage;
     private int[] trueAnswerInts;
+    private int[] soundInts = new int[]{R.raw.mytrue, R.raw.myfalse};
+
 
 
     @Override
@@ -119,6 +123,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("4decV2", "True Answer ==> " + trueAnswerInts[timesAnInt]);
 
         if (intChoose == trueAnswerInts[timesAnInt]) {
+            //Answer True
             scoreAnInt += 1;
 
             SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
@@ -129,12 +134,32 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
             Log.d("4decV3", "scoreAnInt ==> " + scoreAnInt);
 
+            soundTrueFalse(soundInts[0]);
+
+            finish();
+
+        } else {
+            //Answer False
+            soundTrueFalse(soundInts[1]);
+
+            Toast.makeText(TestActivity.this, "Try Again Answer False", Toast.LENGTH_SHORT).show();
 
         }
 
-        finish();
+        //finish();
 
     }   // onClick
+
+    private void soundTrueFalse(int soundInt) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(TestActivity.this, soundInt);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+    }
 
     private void myAlert() {
 
