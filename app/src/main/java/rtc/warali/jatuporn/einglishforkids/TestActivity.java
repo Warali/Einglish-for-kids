@@ -80,7 +80,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             scoreAnInt = Integer.parseInt(strScore);
 
             if (scoreAnInt == 10) {
-                myAlert();
+               // myAlert();
             }
 
             cursor.close();
