@@ -69,6 +69,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         secondImageView.setImageResource(choiceInts[timesAnInt][1]);
         thirdImageView.setImageResource(choiceInts[timesAnInt][2]);
 
+
         try {
 
             SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
